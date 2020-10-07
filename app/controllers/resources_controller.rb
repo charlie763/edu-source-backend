@@ -4,6 +4,11 @@ class ResourcesController < ApplicationController
     render json: { message: 'resource saved'}
   end
 
+  def index
+    resources = Resource.all 
+    render json: resources
+  end
+
   private 
   def resource_params
     params.require(:resource).permit(:title, 

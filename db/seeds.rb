@@ -12,6 +12,7 @@ Resource.create(
   lowerGradeBound: 9,
   upperGradeBound: 12,
   url: "https://www.youtube.com/watch?v=grnP3mduZkM",
+  videoUrl: "https://www.youtube.com/watch?v=grnP3mduZkM",
   subject: "Math",
   rating: 3
 
