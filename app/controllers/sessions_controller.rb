@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
   def show
     if logged_in?
-      render json: { valid: "true", user: {id: user.id, username: user.username} }
+      render json: { valid: "true", user: {id: current_user.id, username: current_user.username} }
     else
       render json: { valid: "false", errorMessages: {session: "Please login to continue"}}
     end
