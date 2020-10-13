@@ -5,7 +5,15 @@ class SessionsController < ApplicationController
       token = issue_token(user)
       render json: { valid: "true", user: {id: user.id, username: user.username}, token: token}
     else
-      render json: { valid: "false", errorMessages: user.errors.messages }
+      render json: { valid: "false", errorMessages: {login: "username or password is wrong"} }
+    end
+  end
+
+  def show
+    if logged_in?
+      render json: { valid: "true", user: {id: user.id, username: user.username} }
+    else
+      render json: { valid: "false", errorMessages: {session: "Please login to continue"}}
     end
   end
 end
