@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 
   def index
     comments = Comment.where(resource_id: params[:resource_id])
-    render json: comments
+    render json: comments, include: { user: { only: [:username] } }
   end
 
   private 
