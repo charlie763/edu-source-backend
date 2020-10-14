@@ -41,3 +41,7 @@ u = User.create(username: "Charlie", password: "test")
 p = Playlist.create(name: "Default Playlist", user: u)
 p.resources << Resource.first
 p.resources << Resource.find(2)
+
+p2 = Playlist.create(name: "My First Playlist", user: u)
+p2.resources << Resource.find(2)
+p2.resources << Resource.find(3)
