@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     Comment.create(
       text: comment_params[:text], 
       user_id: comment_params[:userId], 
-      resource_id: comment_params[:resourceId]
+      resource_id: params[:resource_id]
       )
     render json: { message: 'comment saved'}
   end
@@ -14,6 +14,6 @@ class CommentsController < ApplicationController
 
   private 
   def comment_params
-    params.permit(:text, :userId, :resourceId)
+    params.permit(:text, :userId)
   end
 end
