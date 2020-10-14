@@ -4,6 +4,11 @@ class PlaylistsController < ApplicationController
     render json: playlists
   end
 
+  def create
+    playlist = Playlist.create(playlist_params)
+    render json: playlist
+  end
+
   def update
     case params[:update]
     when "add resource"
@@ -16,5 +21,10 @@ class PlaylistsController < ApplicationController
         render json: { message: "unable to add resource to playlist" }
       end
     end
+  end
+
+  private
+  def playlist_params
+    params.permit(:name)
   end
 end
