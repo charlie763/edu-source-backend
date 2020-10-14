@@ -15,7 +15,6 @@ Resource.create(
   videoUrl: "https://www.youtube.com/watch?v=grnP3mduZkM",
   subject: "Math",
   rating: 3
-
 )
 
 Resource.create(
@@ -26,8 +25,8 @@ Resource.create(
   url: "https://www.education.com/worksheet/article/middle-colonies/",
   subject: "History",
   rating: 2
-
 )
+
 Resource.create(
   title: "Instructions for Science Volcano",
   lowerGradeBound: 3,
@@ -35,5 +34,10 @@ Resource.create(
   url: "https://www.wikihow.com/Make-a-Volcano",
   subject: "Science",
   rating: 5 
-
 )
+
+u = User.create(username: "Charlie", password: "test")
+
+p = Playlist.create(name: "Default Playlist", user: u)
+p.resources << Resource.first
+p.resources << Resource.find(2)
