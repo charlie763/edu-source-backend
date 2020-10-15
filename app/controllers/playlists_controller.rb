@@ -1,11 +1,11 @@
 class PlaylistsController < ApplicationController
   def index
     playlists = Playlist.where(user: current_user)
-    render json: playlists
+    render json: playlists, include: { resources: {except: []} }
   end
 
   def create
-    playlist = Playlist.create(playlist_params)
+    playlist = Playlist.create(name: playlist_params[:name], user: current_user)
     render json: playlist
   end
 
