@@ -6,7 +6,7 @@ class PlaylistsController < ApplicationController
 
   def create
     playlist = Playlist.create(name: playlist_params[:name], user: current_user)
-    render json: playlist
+    render json: playlist, include: { resources: {except: []} }
   end
 
   def update
