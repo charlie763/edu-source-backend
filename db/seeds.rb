@@ -41,7 +41,7 @@ Resource.create(
   description: "Photosynthesis is a process used by plants and other organisms to convert light energy into chemical energy that can later be released to fuel the organisms' activities. This chemical energy is stored in carbohydrate molecules, such as sugars, which are synthesized from carbon dioxide and water – hence the name photosynthesis, from the Greek phōs (φῶς), light, and sunthesis (σύνθεσις), putting together.[1][2][3] In most cases, oxygen is also released as a waste product. Most plants, most algae, and cyanobacteria perform photosynthesis; such organisms are called photoautotrophs. Photosynthesis is largely responsible for producing and maintaining the oxygen content of the Earth's atmosphere, and supplies most of the energy necessary for life on Earth.",
   lowerGradeBound: 0,
   upperGradeBound: 5,
-  url: "https://www.youtube.com/watch?v=Qd6nLM2QlWw",
+  url: "https://www.youtube.com/watch?v=UPBMG5EYydo",
   subject: "Biology",
   rating: 4 
 )
@@ -84,17 +84,17 @@ Resource.create(
   rating: 4 
 )
 
-u = User.create(username: "Charlie", password: "test")
+u = User.create(username: "Charlie", password: "henry367")
 u2 = User.create(username: "Jinaabah", password: "test")
 u3 = User.create(username: "Naninbah", password: "test")
 users = [u, u2, u3]
 
-p = Playlist.create(name: "Default Playlist", user: u)
+p = Playlist.create(name: "Default Bookshelf", user: u)
 p.resources << Resource.first
 p.resources << Resource.find(2)
 p.resources << Resource.find(5)
 
-p2 = Playlist.create(name: "My First Playlist", user: u)
+p2 = Playlist.create(name: "Random Bookshelf", user: u)
 p2.resources << Resource.find(2)
 p2.resources << Resource.find(3)
 p2.resources << Resource.find(6)
