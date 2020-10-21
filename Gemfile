@@ -41,6 +41,7 @@ group :development do
 end
 
 group :production do
+  gem 'pry'
   gem 'pg'
 end
 
