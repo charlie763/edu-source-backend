@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://edusource.herokuapp.com/'
+    origins 'edusource.herokuapp.com', 'localhost:3000'
 
     resource '*',
       headers: :any,
