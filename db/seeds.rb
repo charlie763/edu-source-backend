@@ -28,6 +28,35 @@ Resource.create(
 )
 
 Resource.create(
+  title: "Exploring Our Solar System: Planets and Space for Kids - FreeSchool",
+  lowerGradeBound: 0,
+  upperGradeBound: 5,
+  url: "https://www.youtube.com/watch?v=Qd6nLM2QlWw",
+  subject: "Science",
+  rating: 4 
+)
+
+Resource.create(
+  title: "Photosynthesis | Educational Video for Kids",
+  description: "Photosynthesis is a process used by plants and other organisms to convert light energy into chemical energy that can later be released to fuel the organisms' activities. This chemical energy is stored in carbohydrate molecules, such as sugars, which are synthesized from carbon dioxide and water – hence the name photosynthesis, from the Greek phōs (φῶς), light, and sunthesis (σύνθεσις), putting together.[1][2][3] In most cases, oxygen is also released as a waste product. Most plants, most algae, and cyanobacteria perform photosynthesis; such organisms are called photoautotrophs. Photosynthesis is largely responsible for producing and maintaining the oxygen content of the Earth's atmosphere, and supplies most of the energy necessary for life on Earth.",
+  lowerGradeBound: 0,
+  upperGradeBound: 5,
+  url: "https://www.youtube.com/watch?v=Qd6nLM2QlWw",
+  subject: "Biology",
+  rating: 4 
+)
+
+Resource.create(
+  title: "Ancient Egypt for Kids | History Video Lesson!",
+  description: "In this Ancient Egypt video lesson for kids, learn about one of the first civilizations in history! Learn about the Nile River, Pharoahs, the pyramids, mummies and more!",
+  lowerGradeBound: 3,
+  upperGradeBound: 5,
+  url: "https://www.youtube.com/watch?v=lBYmOuajdC8",
+  subject: "History",
+  rating: 4 
+)
+
+Resource.create(
   title: "Instructions for Science Volcano",
   lowerGradeBound: 3,
   upperGradeBound: 8,
@@ -36,12 +65,46 @@ Resource.create(
   rating: 5 
 )
 
+Resource.create(
+  title: "Learn Spanish for Kids - Numbers, Colors & More",
+  description: "In this exciting adventure, kids learn Spanish words for colors, toys, clothes, furniture, and counting",
+  lowerGradeBound: 1,
+  upperGradeBound: 5,
+  url: "https://www.youtube.com/watch?v=8yuiUvi568I",
+  subject: "Spanish",
+  rating: 4 
+)
+
+Resource.create(
+  title: "Learn Spanish for Kids – Body Parts, Family & Feelings",
+  lowerGradeBound: 1,
+  upperGradeBound: 5,
+  url: "https://www.youtube.com/watch?v=aD5pRgDoYuw",
+  subject: "Spanish",
+  rating: 4 
+)
+
 u = User.create(username: "Charlie", password: "test")
+u2 = User.create(username: "Jinaabah", password: "test")
+u3 = User.create(username: "Naninbah", password: "test")
+users = [u, u2, u3]
 
 p = Playlist.create(name: "Default Playlist", user: u)
 p.resources << Resource.first
 p.resources << Resource.find(2)
+p.resources << Resource.find(5)
 
 p2 = Playlist.create(name: "My First Playlist", user: u)
 p2.resources << Resource.find(2)
 p2.resources << Resource.find(3)
+p2.resources << Resource.find(6)
+
+comments = ["My kids love this!", "I wish there were a more timestamps, so I could fast foward to where we need to go", "Where can I find more like this?", "This is great!"]
+
+Resource.all.each{|resource| 
+  resource.comments.create(
+    user: users[rand(0..2)],
+    resource: resource,
+    text: comments[rand(0..3)]
+  )
+}
