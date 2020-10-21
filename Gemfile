@@ -27,8 +27,10 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
+gem 'pry'
+gem 'pry-rails'
+
 group :development, :test do
-  gem 'pry'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4' 
 end
@@ -41,7 +43,6 @@ group :development do
 end
 
 group :production do
-  gem 'pry'
   gem 'pg'
 end
 
