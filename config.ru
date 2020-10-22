@@ -9,7 +9,7 @@ use Rack::Cors do
 
   # allow all origins in development
   allow do
-    origins 'edusource.herokuapp.com', 'localhost:3000'
+    origins 'edusource.herokuapp.com', 'localhost:3001'
 
     resource '*',
       headers: :any,
